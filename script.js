@@ -68,11 +68,15 @@ fetchTasks();
 
 document.getElementById('btn-simpan').addEventListener('click', async () => {
     const input = document.getElementById('input-tugas');
+    console.log("Tombol diklik, nilai input:", input.value); // <--- Tambahkan ini
+
     await fetch('https://tugas-praktikum-api.onrender.com/tasks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: input.value, status: 'Belum Selesai' })
     });
+    
+    console.log("Data telah dikirim ke server"); // <--- Tambahkan ini
     input.value = '';
     fetchTasks();
 });
