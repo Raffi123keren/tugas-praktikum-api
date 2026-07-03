@@ -68,15 +68,23 @@ fetchTasks();
 
 document.getElementById('btn-simpan').addEventListener('click', async () => {
     const input = document.getElementById('input-tugas');
-    console.log("Tombol diklik, nilai input:", input.value); // <--- Tambahkan ini
-
-    await fetch('https://tugas-praktikum-api.onrender.com/tasks', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title: input.value, status: 'Belum Selesai' })
-    });
     
-    console.log("Data telah dikirim ke server"); // <--- Tambahkan ini
-    input.value = '';
-    fetchTasks();
+    // Cek apakah input kosong
+    if (input.value.trim() === "") {
+        alert("Tugas tidak boleh kosong!");
+        return;
+    }
+
+    try {
+        await fetch('https://tugas-praktikum-api.onrender.com/tasks', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ title: input.value, status: 'Belum Selesai' })
+        });
+        
+        input.value = ''; // Kosongkan input
+        fetchTasks();     // Refresh daftar tugas
+    } catch (error) {
+        console.error("Gagal menyimpan:", error);
+    }
 });
