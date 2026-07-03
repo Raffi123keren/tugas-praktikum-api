@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Mengatur font dan background agar terlihat bersih */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -42,4 +43,50 @@ button { margin-left: 10px; cursor: pointer; background: #ff4d4d; color: white; 
 /* Efek saat mouse diarahkan ke item */
 #task-list li:hover {
     transform: scale(1.02);
+=======
+/* Mengatur font dan background agar terlihat bersih */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Memberi gaya pada judul */
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Mengatur kotak daftar tugas */
+#task-list {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Mengatur tampilan setiap item tugas */
+#task-list li {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+body { font-family: sans-serif; max-width: 400px; margin: 20px auto; }
+li { list-style: none; padding: 10px; border-bottom: 1px solid #ccc; display: flex; align-items: center; }
+input[type="checkbox"] { margin-right: 10px; }
+span { flex-grow: 1; }
+button { margin-left: 10px; cursor: pointer; background: #ff4d4d; color: white; border: none; padding: 5px 10px; }
+
+/* Efek saat mouse diarahkan ke item */
+#task-list li:hover {
+    transform: scale(1.02);
+>>>>>>> 04d73387861efdf29ee1a49f2ebeb2017c2ab8de
 }
