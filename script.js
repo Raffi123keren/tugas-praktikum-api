@@ -67,9 +67,9 @@ async function fetchTasks() {
 fetchTasks();
 
 document.getElementById('btn-simpan').addEventListener('click', async () => {
-    const input = document.getElementById('input-tugas');
+    // Ubah id di bawah ini menjadi 'new-task' agar sesuai dengan index.html
+    const input = document.getElementById('new-task'); 
     
-    // Cek apakah input kosong
     if (input.value.trim() === "") {
         alert("Tugas tidak boleh kosong!");
         return;
@@ -82,8 +82,8 @@ document.getElementById('btn-simpan').addEventListener('click', async () => {
             body: JSON.stringify({ title: input.value, status: 'Belum Selesai' })
         });
         
-        input.value = ''; // Kosongkan input
-        fetchTasks();     // Refresh daftar tugas
+        input.value = '';
+        fetchTasks();
     } catch (error) {
         console.error("Gagal menyimpan:", error);
     }
