@@ -2,7 +2,7 @@ const list = document.getElementById('task-list');
 
 async function fetchTasks() {
     try {
-        // Ganti URL ini dengan URL Render Anda jika berbeda
+        // Menggunakan https agar tidak terkena error Mixed Content
         const response = await fetch('https://tugas-praktikum-api.onrender.com/tasks');
         const data = await response.json();
         list.innerHTML = '';
@@ -23,14 +23,15 @@ async function fetchTasks() {
                 fetchTasks();
             };
 
-            // Teks & Edit
+            // Teks
             let span = document.createElement('span');
             span.textContent = task.title;
 
+            // Tombol Edit
             let btnEdit = document.createElement('button');
             btnEdit.textContent = "Edit";
             btnEdit.onclick = () => {
-                let inputEdit = document.createElement('input');
+                let inputEdit = document.createElement('input'); // Variabel didefinisikan dengan benar di sini
                 inputEdit.value = task.title;
                 li.replaceChild(inputEdit, span);
                 btnEdit.textContent = "Simpan";
@@ -44,7 +45,7 @@ async function fetchTasks() {
                 };
             };
 
-            // Hapus
+            // Tombol Hapus
             let btnHapus = document.createElement('button');
             btnHapus.textContent = "Hapus";
             btnHapus.onclick = async () => {
@@ -64,14 +65,3 @@ async function fetchTasks() {
 }
 
 fetchTasks();
-
-    input.value = ''; 
-
-    fetchTasks(); 
-
-
-document.getElementById('btn-simpan').addEventListener('click', function() {
-    // Logika pengiriman data ke API ada di sini
-    console.log("Tombol diklik!"); 
-});
-fetchTasks(); 
